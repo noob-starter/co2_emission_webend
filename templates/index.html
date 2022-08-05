@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/favicon.ico" />
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a;
+  }
+  
+  .logo {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .logo:visited {
+    color: rgb(132, 236, 132);
+  }
+  
+  .logo:hover {
+    color: whitesmoke;
+  }
+  
+  .logo:active {
+    color: rgb(237, 60, 60);
+  }
+
+
+
+  .nav__links a,
+  .cta,
+  .overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav__links li {
+    padding: 0px 20px;
+  }
+  
+  .nav__links li a {
+    transition: color 0.3s ease 0s;
+  }
+  
+  .nav__links li a:hover {
+    color: #03c04a;
+  }
+  .nav__links li a:active {
+    color: rgb(237, 60, 60);
+  }
+  .cta {
+    padding: 9px 25px;
+    background-color: #03c04a;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+  }
+  
+  .cta:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+  
+  .menu {
+    display: none;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: width 0.5s ease 0s;
+  }
+  
+  .overlay--active {
+    width: 100%;
+  }
+  
+  .overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: color 0.3s ease 0s;
+  }
+  
+  .overlay a:hover,
+  .overlay a:focus {
+    color: #03ac1c;
+  }
+  .overlay a:active {
+    color: rgb(237, 60, 60);
+  }
+  .overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {
+      font-size: 20px;
+    }
+    .overlay .close {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+      display: none;
+    }
+    .menu {
+      display: initial;
+    }
+  }
+  
+
+
+
+
+  @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+  .header {
+    position:relative;
+    text-align:center;
+    background: linear-gradient(60deg, rgb(10, 154, 39) 0%, rgb(46, 207, 34) 100%);
+    color:white;
+  }
+
+  
+  .inner-header {
+    height:65vh;
+    width:100%;
+    margin: 0;
+    padding: 0;
+  }
+  .inner-header > h1{
+    margin-top: -20%;
+    font-size: 3rem;
+  }
+
+  .inner-header > p{
+    margin-top: 0%;
+    font-size: 1.5rem;
+    margin-left: -35%;
+    width: 40%;
+    text-align: justify;
+  }
+
+  .flex { 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .waves {
+    position:relative;
+    width: 100%;
+    height:15vh;
+    margin-bottom:-7px; 
+    min-height:100px;
+    max-height:150px;
+  }
+  
+  .content {
+    position:relative;
+    height:20vh;
+    margin-top: 10%;
+    text-align:center;
+    background-color: white;
+  }
+  .content > img{
+    width: 50%;
+  }
+
+  
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+  }
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+     transform: translate3d(-90px,0,0);
+    }
+    100% { 
+      transform: translate3d(85px,0,0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .waves {
+      height:40px;
+      min-height:40px;
+    }
+    .content {
+      height:30vh;
+    }
+    h1 {
+      font-size:24px;
+    }
+  }
+
+
+</style>
+
+
+<body>
+    <header>
+        <a class="logo" href="/"><h1><b>Carbon Footprint</b></h1></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/explore/">Exploration</a></li>
+                <li><a href="https://www.conservation.org/stories/what-is-a-carbon-footprint">About</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="pratikyawalkar5263@gmail.com"><b>Contact Me</b></a>
+        <p class="menu cta"><b>Menu</b></p>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="/">Home</a>
+            <a href="/explore/">Exploration</a>
+            <a href="https://www.conservation.org/stories/what-is-a-carbon-footprint">About</a>
+        </div>
+    </div>
+    <section>
+        <div class="header">
+            <div class="inner-header flex">
+                <img src="\static\Images\homepage.png" ></img>
+                <h1>What is Carbon Footprint ?</h1>
+                <p>
+                    A carbon footprint is a simple way to express that impact. 
+                    The “size” of your carbon footprint depends on multiple factors. 
+                    The primary one is the amount of greenhouse gas emissions released into the atmosphere by a given activity.
+                </p>
+            </div>
+    
+
+            <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="content flex" style="width:90%;height:auto">
+          {% if graph3 %}
+            <div style="width:800%;height:auto">
+            {{ graph3|safe }}
+            </div>
+        {% endif %}
+        
+
+        </div>
+
+        <div class="content flex" style="margin-top: 3%;">
+          {% if graph %}
+            <div style="width:50%;height:20%">
+            {{ graph|safe }}
+            </div>
+        {% endif %}
+        {% if graph2 %}
+            <div style="width:50%;height:20%">
+            {{ graph2|safe }}
+            </div>
+        {% endif %}
+
+        </div>
+        
+        <!-- <div class="content flex">
+            <img src="data:image/png;base64,{{ u }}"></img>
+            <img src="Images/newplot.png"></img>
+        </div> -->
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+<script>
+    const doc = document;
+const menuOpen = doc.querySelector(".menu");
+const menuClose = doc.querySelector(".close");
+const overlay = doc.querySelector(".overlay");
+
+menuOpen.addEventListener("click", () => {
+  overlay.classList.add("overlay--active");
+});
+
+menuClose.addEventListener("click", () => {
+  overlay.classList.remove("overlay--active");
+});
+
+</script>
+
+</html>

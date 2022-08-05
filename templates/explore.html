@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Site</title>
+    <link rel="stylesheet" href="explore.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+</head>
+
+<style>
+/* 
+ */
+
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a;
+  }
+  
+  .logo {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .logo:visited {
+    color: rgb(132, 236, 132);
+  }
+  
+  .logo:hover {
+    color: whitesmoke;
+  }
+  
+  .logo:active {
+    color: rgb(237, 60, 60);
+  }
+
+
+
+  .nav__links a,
+  .cta,
+  .overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav__links li {
+    padding: 0px 20px;
+  }
+  
+  .nav__links li a {
+    transition: color 0.3s ease 0s;
+  }
+  
+  .nav__links li a:hover {
+    color: #03c04a;
+  }
+  .nav__links li a:active {
+    color: rgb(237, 60, 60);
+  }
+  .cta {
+    padding: 9px 25px;
+    background-color: #03c04a;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+  }
+  
+  .cta:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+  
+  .menu {
+    display: none;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: width 0.5s ease 0s;
+  }
+  
+  .overlay--active {
+    width: 100%;
+  }
+  
+  .overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: color 0.3s ease 0s;
+  }
+  
+  .overlay a:hover,
+  .overlay a:focus {
+    color: #03ac1c;
+  }
+  .overlay a:active {
+    color: rgb(237, 60, 60);
+  }
+  .overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {
+      font-size: 20px;
+    }
+    .overlay .close {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+      display: none;
+    }
+    .menu {
+      display: initial;
+    }
+  }
+  
+
+
+
+/* 
+  @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+  .header {
+    position:relative;
+    text-align:center;
+    background: linear-gradient(60deg, rgb(10, 154, 39) 0%, rgb(46, 207, 34) 100%);
+    color:white;
+  }
+
+  
+  .inner-header {
+    height:65vh;
+    width:100%;
+    margin: 0;
+    padding: 0;
+  }
+  .inner-header > h1{
+    margin-top: -20%;
+    font-size: 3rem;
+  }
+
+  .inner-header > p{
+    margin-top: 0%;
+    font-size: 1.5rem;
+    margin-left: -35%;
+    width: 40%;
+    text-align: justify;
+  }
+
+  .flex { 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .waves {
+    position:relative;
+    width: 100%;
+    height:15vh;
+    margin-bottom:-7px; 
+    min-height:100px;
+    max-height:150px;
+  }
+  
+  .content {
+    position:relative;
+    height:20vh;
+    margin-top: 10%;
+    text-align:center;
+    background-color: white;
+  }
+  .content > img{
+    width: 50%;
+  }
+
+  
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+  }
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+     transform: translate3d(-90px,0,0);
+    }
+    100% { 
+      transform: translate3d(85px,0,0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .waves {
+      height:40px;
+      min-height:40px;
+    }
+    .content {
+      height:30vh;
+    }
+    h1 {
+      font-size:24px;
+    }
+  } */
+/*  */
+.sections{
+    column-count: 1;
+}
+.section1{
+    width: 100%;
+}
+.section1_left{
+    width: 40%;
+    float: left;
+}
+.section1_right{
+    width: 60%;
+    float: right;
+    height: 456px;
+    background: linear-gradient(60deg, rgb(57, 57, 145) 60%, rgb(19, 137, 227) 100%);
+}
+.section1_left > img{
+    width: 100%;
+    height: 100%;
+}
+.section1_right > h1{
+    font-size: 3rem;
+    color: antiquewhite;
+    margin-left: 10%;
+    margin-top: 6%;
+}
+.section1_right > p{
+    font-size: 1.5rem;
+    color: antiquewhite;
+    margin-left: 12%;
+    margin-top: 6%;
+    padding-right: 10rem;
+    text-align: justify;
+}
+
+.section2, .section3,.section4, .section5, .section6{
+    width: 100%;
+}
+.section2{
+    margin-top: 460px;
+}
+.section5, .section6{
+    margin-top: 35%;
+}
+.section2 > h1, .section3 >h1, .section4 >h1, .section5 >h1, .section6 >h1{
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.section2 h1{
+    justify-content: center;
+
+}
+.section2 > img, .section3 > img{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.section4_left, .section5_left, .section6_left{
+    width: 40%;
+    float: left;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.section4_right, .section5_right, .section6_right{
+    width: 40%;
+    float: right;
+    height: 456px;  
+}
+.section4_left > h1, .section5_left > h1, .section6_left > h1{
+    font-size: 2.4rem;
+}
+
+
+input {
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: #0ec91e;
+    background-image: none;
+    flex: 1;
+    padding: 1em;
+    color:black;
+    cursor:pointer;
+    font-size: 1em;
+    font-weight: 1000;
+    text-align: center;
+    justify-items: center;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    margin:0.96em 2em;
+    line-height: 3;
+    font-family: 'Open Sans', sans-serif;
+ }
+
+ input::-ms-expand {
+    display: none;
+ }
+ .input {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+
+
+
+select {
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: #0ec91e;
+    background-image: none;
+    flex: 1;
+    padding: 0.7em;
+    color:black;
+    cursor:pointer;
+    font-size: 1em;
+    font-weight: 1000;
+    text-align: center;
+    justify-items: center;
+    font-family: 'Open Sans', sans-serif;
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .select::after {
+    content: '\2B9B';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #056f15;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+
+ .select:hover::after {
+    color: #9fee93;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rotatediv{
+    -webkit-transform:rotate(180deg);
+    transform: rotate(180deg);
+    position: fixed;
+    top: 80%;
+    right: 8%;
+}
+
+.scrolldown {
+    --color: white;
+    --sizeX: 30px;
+    --sizeY: 50px;
+    position: relative;
+    width: var(--sizeX);
+    height: var(--sizeY);
+    margin-left: var(sizeX / 2);
+    border: calc(var(--sizeX) / 10) solid var(--color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
+  
+  .scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--color);
+    border-radius: 100%;
+    /* animation: scrolldown-anim 2s infinite; */
+    box-sizing: border-box;
+    box-shadow: 0px -5px 3px 1px #ffffff66;
+  }
+  
+  /* @keyframes scrolldown-anim {
+    0% {
+      opacity: 0;
+      height: 6px;
+    }
+    40% {
+      opacity: 1;
+      height: 10px;
+    }
+    80% {
+      transform: translate(0, 20px);
+      height: 10px;
+      opacity: 0;
+    }
+    100% {
+      height: 3px;
+      opacity: 0;
+    }
+  } */
+  .chevrons {
+    padding: 6px 0 0 0;
+    margin-left: -3px;
+    margin-top: 48px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* .chevrondown {
+    margin-top: -6px;
+    position: relative;
+    border: solid var(--color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+  } */
+  /* .chevrondown:nth-child(odd) {
+    animation: pulse 500ms ease infinite alternate;
+  }
+  .chevrondown:nth-child(even) {
+    animation: pulse 500ms ease infinite alternate 250ms;
+  } */
+  /* @keyframes pulse {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
+  } */
+
+
+
+
+
+
+
+
+  .wrap {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-left: 40px;
+  }
+  
+  .button {
+    min-width: 200px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 1000;
+    color: #313133;
+    background: linear-gradient(90deg, rgb(8, 141, 24) 0%, rgb(73, 235, 103) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(2, 68, 12, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    }
+  
+  button::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(200px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #069b1f;
+    box-shadow: 0 0 60px rgba(10, 216, 20, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button:hover, .button:focus {
+    color: #000000;
+    transform: translateY(-6px);
+  }
+  
+  button:hover::before, button:focus::before {
+    opacity: 1;
+  }
+  
+  button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #0bbe11;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* animation: ring 1.5s infinite; */
+  }
+  
+  button:hover::after, button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+
+
+</style>
+<body>
+ 
+    <header>
+        <a class="logo" href="/"><h1><b>Carbon Footprint</b></h1></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/explore/">Exploration</a></li>
+                <li><a href="https://www.conservation.org/stories/what-is-a-carbon-footprint">About</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><b>Contact Me</b></a>
+        <p class="menu cta"><b>Menu</b></p>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="/">Home</a>
+            <a href="/explore/">Exploration</a>
+            <a href="https://www.conservation.org/stories/what-is-a-carbon-footprint">About</a>
+        </div>
+    </div>
+{% load static %}
+<!-- <div class="sections"> -->
+<section class="section1">
+    <section class="section1_left">
+        <img src="\static\Images\website.gif " alt="section1_gif">
+    </section>
+    <section class="section1_right">
+        <h1><b>Exploratory Data Analysis </b></h1>
+        <p>
+            EDA involves using graphics and visualizations 
+            to explore and analyze a data set. The goal is to explore, 
+            investigate and learn, as opposed to confirming statistical hypotheses.<br><br>
+            " The combination of some data and an aching desire 
+            for an answer does not ensure that a reasonable answer can be extracted from a given body of data "<br><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            — John Tukey, Exploratory Data Analysis
+        </p>
+    </section>
+</section>
+
+
+
+<section class="section_main" style="margin: 1% 5%;">
+  <p style="font-size: 63px; font-weight:bolder;width: 100%; margin-top: 5%; margin-bottom: 1%; text-align: center; position: relative; right: 20%;">Select Values For Plot</p>
+  <section class="section_block">
+      <form action="" method="post">
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <section class="section_c">
+              <p style="font-size:33px; font-weight: 900; color: #000000;">Choose a Country</p><br><br>
+              <div class="select">
+                 <select name="format" id="format">
+                    <option selected disabled>Choose a Country</option>
+                    <option value="India">India</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Russia">Russia</option>
+                    <option value="China">China</option>
+                    <option value="Nepal">Nepal</option>
+                 </select>
+              </div><br>
+            </section>
+
+          </div>
+
+          <div>
+            <p style="font-size:33px; font-weight: 900; margin:0 0.8em ;color: #000000;">Choose a Year</p><br>
+            <div>
+               <input style = "color:  #000000;" type="text" name="year" id="year" placeholder="Input a Year or range of Year"></input>
+            </div><br>
+          </div>
+          
+            <div>
+              <p style="font-size:33px; font-weight: 900; margin:0 0.8em ; color: #000000;">Choose a Limit</p><br>
+              <div>
+                <input style = "color: #000000;"  type="text" name = "limit" id ="limit" placeholder="Input a Limit"></input>
+              </div><br>
+            </div>
+            
+            
+           
+
+        </div>
+        <div class="wrap">
+          <button class="button">PLOT</button>
+        </div>
+    
+            
+
+        </section>
+
+        <!-- <select name="emission_q" id="emission_q" onclick="showCheckboxes()" >
+        </select>
+        <div class="overSelect">
+        <div id="checkboxes">
+          <option >Choose a Country</option>
+          <option name="emission" value="{{ option }}" id="emission">{{ option }}</option>
+                 
+              
+          </div>
+        </select>
+         
+
+          <div>
+            <input type="text" name="comparision_year"></input>
+          
+          </div><br>
+        </div><br><br><br> -->
+
+        <!-- <div class="wrap">
+            <button class="button">PLOT</button>
+        </div> -->
+
+      </form>
+  
+</section>
+<section class="section2">
+  {% if show  == 'yes' %}
+    {% if graph %}
+        <h1>{{graph_a_head}}</h1><br><br>
+            <div style="width:100%;height:20%">
+            {{ graph|safe }}
+            </div>
+      {% endif %}
+
+      {% if graph1 %}
+      <h1>{{graph_b_head}}</h1><br><br>
+            <div style="width:100%;height:20%">
+            {{ graph1|safe }}
+            </div>
+      {% endif %}
+      {% if graph2 %}
+      <h1>{{graph_c_head}}</h1><br><br>
+            <div style="width:100%;height:20%">
+            {{ graph2|safe }}
+            </div>
+      {% endif %}
+      {% if graph3 %}
+      <h1>{{graph_d_head}}</h1><br><br>
+            <div style="width:100%;height:20%">
+            {{ graph3|safe }}
+            </div>
+      {% endif %}
+
+      {% if graph4 %}
+      <h1>{{graph_e_head}}</h1><br><br>
+            <div style="width:100%;height:20%">
+            {{ graph4|safe }}
+            </div>
+      {% endif %}
+{% endif %}
+
+</section>
+
+
+<!-- 
+<section class="section2">
+    <h1><b>MAP</b></h1>
+    {% if graph %}
+            <div style="width:100%;height:20%">
+            {{ graph|safe }}
+            </div>
+      {% endif %}
+    
+</section>
+
+<section class="section3">
+    
+</section>
+
+<section class="section4">
+    <h1><b>CO2 Emission By Country</b></h1>
+    <section class="section4_left">
+        <h1>Choose a Country</h1><br><br>
+        <div class="select">
+
+          <form action="" method="post">
+
+            <select name="emission_q" id="emission_q" >
+             
+              <option selected disabled>Choose a Country</option>
+                   {% for option in options %}
+                 <option name="emission" value="{{ option }}" id="emission">{{ option }}</option>
+                 {% endfor %}
+                   
+                    </select>
+              </select>
+            </div><br><br><br>
+            <div class="wrap">
+                <button class="button">PLOT</button>
+            </div>
+
+          </form>
+           
+
+
+    </section>
+    <section class="section4_right">
+      {% if graph2 %}
+            <div style="width:100%;height:20%">
+            {{ graph2|safe }}
+            </div>
+      {% endif %}
+       </section>
+</section>
+
+
+<section class="section5">
+        <h1><b>Comparison</b></h1>
+        <section class="section5_left">
+            <h1>Choose a Country</h1><br><br>
+
+            <form action="" method="post">
+
+              <div class="select">
+                <select name="comparision_q" id="comparision_q" multiple="multiple">
+                   <option selected disabled>Choose a Country</option>
+                   {% for option in options %}
+                 <option name="comparision" value="{{ option }}" id="comparision">{{ option }}</option>
+                 {% endfor %}
+                   
+                </select>
+              </div><br>
+      
+              <h1>Choose a Year</h1><br>
+              <div>
+                  <input type="text" name="comparision_year"></input>
+                 
+              </div><br>
+              <div class="wrap">
+                  <button class="button">PLOT</button>
+              </div>
+
+
+            </form>
+            
+
+
+        </section>
+        <section class="section5_right">
+          {% if graph3 %}
+            <div style="width:100%;height:20%">
+            {{ graph3|safe }}
+            </div>
+          {% endif %}
+           </section> 
+</section>
+
+
+
+<section class="section6">
+    <h1><b>Top X Country</b></h1>
+    <section class="section6_left">
+
+        <h1>Choose a Country</h1><br><br>
+        <form action="" method="post">
+          <div class="select">
+            <select name="top_x_country_q" id="top_x_country_q" multiple="multiple">
+               <option selected disabled>Choose a Country</option>
+               {% for option in options %}
+               <option name="top_x_country" value="{{ option }}" id="top_x_country">{{ option }}</option>
+               {% endfor %}
+              
+            </select>
+          </div><br><br><br>
+          <div class="wrap">
+              <button class="button" id="btnget">PLOT</button>
+          </div>
+ 
+ 
+
+        </form>
+        
+    </section>
+    <section class="section6_right">
+      {% if graph4 %}
+            <div style="width:100%;height:20%">
+            {{ graph4|safe }}
+            </div>
+      {% endif %}
+       
+    </section>
+</section> -->
+
+
+<!-- </div> -->
+<div class="rotatediv">
+    <div class='scrolldown' style="--color: green" title="Back To Top" onclick="scrollToTop()">
+        <div class="chevrons">
+          <div class='chevrondown'></div>
+          <div class='chevrondown'></div>
+        </div>
+      </div>
+</div>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+
+
+
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+</script>
+
+</body>
+</html>
