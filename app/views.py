@@ -1,26 +1,24 @@
 from django.shortcuts import render
 
-# Create your views here.
+# # Create your views here.
 
 
 import numpy as np 
 import pandas as pd
 import datetime
-import seaborn as sns 
+# import seaborn as sns 
 import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
-import warnings
 
 
-import io
-import urllib,base64
+
 import pandas as pd
 import numpy as np
 import matplotlib as mp
 import matplotlib.pyplot as plt
 import plotly.offline as opy
-import seaborn as sb
+# import seaborn as sb
 from django.views.decorators.csrf import csrf_exempt
 
 # warnings.filterwarnings("ignore")
